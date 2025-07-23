@@ -2,10 +2,6 @@
 
 This project provides a comprehensive suite of Python scripts for backtesting various algorithmic trading strategies. It allows traders and developers to test the performance of different approaches using historical data, enabling informed decision-making before live deployment.
 
-## Overview
-
-The "Backtest Strategy" project offers a flexible framework for evaluating trading strategies across different market conditions. By leveraging historical data and popular financial libraries, it helps in understanding strategy profitability, risk, and overall effectiveness through detailed performance metrics and visualizations.
-
 ## Features
 
 *   **Delta Trading Algorithm Backtester:** A robust backtesting script for a specific Delta trading algorithm. It includes features like historical data fetching via `ccxt`, technical indicator calculations (Moving Averages, ATR), sophisticated entry/exit signal generation, position sizing based on the Kelly Criterion, trade simulation, and comprehensive performance analysis with plotting capabilities.
@@ -18,7 +14,15 @@ The "Backtest Strategy" project offers a flexible framework for evaluating tradi
 ## Project Structure
 
 ```
-<code_block_to_apply_changes_from>
+.
+├── 3cnfo.py                      # Multi-indicator strategy (Supertrend, MACD, VWAP)
+├── backtest_results.png          # Example screenshot of backtest results
+├── backtest.py                   # Delta Trading Algorithm backtester
+├── imp.py                        # Enhanced VWAP strategy
+├── Trend Following Backtest.py   # Trend Following strategy backtester
+├── VWAPHLC3Strategy.html         # HTML plot output for VWAP strategy
+├── VWAPStrategy.html             # HTML plot output for VWAP strategy
+└── vwep.py                       # Basic VWAP strategy
 ```
 
 ## Prerequisites
@@ -40,7 +44,7 @@ The project is built using the following technologies:
 *   **`backtesting.py`:** A robust framework for backtesting trading strategies, providing features like strategy definition, trade simulation, and performance reporting.
 *   **`pandas_ta`:** A technical analysis library that provides a wide range of indicators used across various strategies.
 
-## Setup or Installation Steps
+## Getting Started
 
 1.  **Clone the repository:**
 
@@ -57,9 +61,29 @@ The project is built using the following technologies:
     pip install pandas numpy ccxt matplotlib backtesting pandas_ta
     ```
 
-## Environment Variables (Applicable)
+## Running Backtests
 
-Some scripts might contain placeholders for API keys (e.g., `YOUR_API_KEY`). For production or repeated use, it's highly recommended to manage sensitive information like API keys using environment variables for security. You can set them in your system or use a `.env` file and a library like `python-dotenv`.
+To run a backtest, you can execute any of the strategy scripts directly. For instance, to run the Delta Trading Algorithm backtest:
+
+```bash
+python backtest.py
+```
+
+This will fetch data, run the backtest, print performance statistics to the console, and generate a plot (which might be saved as `backtest_results.png`).
+
+To run the Trend Following Backtest:
+
+```bash
+python "Trend Following Backtest.py"
+```
+
+This will likely generate an HTML file (e.g., `backtest.html`) with interactive plots of the backtest results.
+
+## Configuration
+
+Customize your backtest by modifying the configuration variables directly within the Python scripts (e.g., `SYMBOL`, `TIMEFRAME`, `EXCHANGE_ID`, `LOT_SIZE`).
+
+For sensitive information like API keys, it's recommended to use environment variables:
 
 Example of setting an environment variable (for Linux/macOS):
 
@@ -80,25 +104,10 @@ import os
 API_KEY = os.getenv('DELTA_API_KEY', 'YOUR_API_KEY_DEFAULT_IF_NOT_SET')
 ```
 
-## Usage Example
+## Screenshots (Optional)
 
-To run a backtest, you can execute any of the strategy scripts directly. For instance, to run the Delta Trading Algorithm backtest:
-
-```bash
-python backtest.py
-```
-
-This will fetch data, run the backtest, print performance statistics to the console, and generate a plot (which might be saved as `backtest_results.png`).
-
-To run the Trend Following Backtest:
-
-```bash
-python "Trend Following Backtest.py"
-```
-
-This will likely generate an HTML file (e.g., `backtest.html`) with interactive plots of the backtest results.
-
-
+![Backtest Results Example](backtest_results.png)
+*An example screenshot of backtest results, showing equity curve and trade signals.*
 
 ## FAQ
 
